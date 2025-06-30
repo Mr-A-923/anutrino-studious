@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Nutrino - Coming Soon</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Background video */
+    .background-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      filter: brightness(0.6);
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+
+    .owner-info {
+      font-size: 1.2rem;
+      opacity: 0.7;
+    }
+
+    .owner-info a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .owner-info a:hover {
+      border-color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay muted loop class="background-video">
+    <source src="https://cdn.videvo.net/videvo_files/video/free/2022-02/small_watermarked/220110_06_Storm_4k_003_preview.webm" type="video/webm" />
+    Your browser does not support the video tag.
+  </video>
+
+  <h1>Coming Soon</h1>
+  <p>Elite Design Company — Crafting Timeless Experiences</p>
+
+  <div class="owner-info">
+    <strong>Mr. Invisible</strong><br />
+    Owner &amp; CEO<br />
+    Instagram: <a href="https://instagram.com/mr.invisible" target="_blank">@mr.invisible</a> | 
+    Facebook: <a href="https://www.facebook.com/profile.php?id=61577620364066" target="_blank">A Nutrino Studio</a>
+  </div>
+
+</body>
+</html>
+
