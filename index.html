@@ -1,112 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>A Nutrino Studious</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    html, body {
+    :root {
+      --black: #0d0d0d;
+      --blue: #4285F4;
+      --text-light: #e8eaed;
+      --gray: #1f1f1f;
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      background-color: #0d0d0d;
-      color: #ffffff;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: "Inter", sans-serif;
-      scroll-behavior: smooth;
+      background: var(--black);
+      color: var(--text-light);
       overflow-x: hidden;
     }
-    .section {
-      min-height: 100vh;
+
+    .coming-soon {
+      height: 100vh;
+      background-color: var(--black);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      padding: 40px 20px;
-    }
-    .logo {
-      font-family: "Playfair Display", serif;
-      font-size: 5rem;
-      opacity: 0;
-      transform: scale(0.8);
-    }
-    .subtitle {
-      opacity: 0;
-      font-size: 1.5rem;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      width: 100%;
-      max-width: 1200px;
-    }
-    .card {
-      background: #1a1a1a;
-      border-radius: 16px;
-      padding: 24px;
       text-align: center;
-      transform: translateY(30px);
-      opacity: 0;
-      transition: all 0.3s ease;
+      padding: 40px;
     }
-    .card:hover {
-      transform: scale(1.05);
-      background: #2a2a2a;
+
+    .coming-soon h1 {
+      font-size: 4rem;
+      font-family: "Playfair Display", serif;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+
+    .coming-soon p {
+      font-size: 1.3rem;
+      color: var(--text-light);
+      opacity: 0.85;
+    }
+
+    .countdown {
+      font-size: 2rem;
+      color: var(--blue);
+      margin: 30px 0;
+      letter-spacing: 2px;
+    }
+
+    .founder {
+      margin-top: 2rem;
+      font-style: italic;
+      color: #aaa;
+      font-size: 1rem;
+    }
+
+    .quote {
+      font-style: italic;
+      margin-top: 10px;
+      color: #777;
+      font-size: 1rem;
+    }
+
+    .social-links {
+      margin-top: 40px;
+    }
+
+    .social-links a {
+      color: var(--blue);
+      margin: 0 10px;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      border-bottom: 1px solid var(--blue);
     }
   </style>
 </head>
 <body>
+  <section class="coming-soon">
+    <h1>Coming Soon</h1>
+    <div class="countdown" id="countdown">00d : 00h : 00m : 00s</div>
+    <p class="founder">
+      Built in silence by <strong>Mr. Invisible</strong>
+      <br />
+      <span class="quote">"The empire is not coming… it’s already here."</span>
+    </p>
 
-  <div class="section" id="hero">
-    <div class="logo">A Nutrino Studious</div>
-    <div class="subtitle">Elite Motion Design Studio</div>
-  </div>
-
-  <div class="section" id="showcase">
-    <h2>Our World-Class Designs</h2>
-    <div class="gallery">
-      <div class="card">Design Alpha</div>
-      <div class="card">Design Omega</div>
-      <div class="card">Design Echelon</div>
-      <div class="card">Design Nova</div>
+    <div class="social-links">
+      <a href="https://facebook.com/anutrino.studious" target="_blank">Facebook</a>
+      <a href="https://instagram.com/anutrino.studious" target="_blank">Instagram</a>
     </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  </section>
 
   <script>
-    // Logo animation
-    gsap.to(".logo", {
-      scale: 1,
-      opacity: 1,
-      duration: 1.5,
-      ease: "power4.out"
-    });
+    const countdown = document.getElementById("countdown");
+    const target = new Date("2025-07-30T00:00:00").getTime();
 
-    gsap.to(".subtitle", {
-      delay: 0.6,
-      opacity: 1,
-      y: -10,
-      duration: 1.2,
-      ease: "power2.out"
-    });
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = target - now;
 
-    // Cards animate on scroll
-    gsap.utils.toArray(".card").forEach((card, i) => {
-      gsap.to(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        },
-        opacity: 1,
-        y: 0,
-        delay: i * 0.1,
-        duration: 1,
-        ease: "power2.out"
-      });
-    });
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days}d : ${hours}h : ${mins}m : ${secs}s`;
+    }, 1000);
   </script>
 </body>
 </html>
+
+
