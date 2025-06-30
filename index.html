@@ -1,128 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>A Nutrino - Coming Soon</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Nutrino Studious</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      background-color: #0d0d0d;
+      color: #ffffff;
+      font-family: "Inter", sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
-    body, html {
-      height: 100%;
-      background: #000;
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
+    .section {
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      overflow: hidden;
-      padding: 0;
-      position: relative;
-      text-align: center;
+      padding: 40px 20px;
     }
-    .background-video {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 5rem;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    .subtitle {
+      opacity: 0;
+      font-size: 1.5rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(0.5);
+      max-width: 1200px;
     }
-    h1 {
-      font-size: 4rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-family: 'Great Vibes', cursive;
-      color: #f44336;
-      text-shadow: 0 0 10px #f44336, 0 0 20px #f44336, 0 0 30px #f44336;
-      animation: fadeInUp 2s ease forwards;
+    .card {
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transform: translateY(30px);
       opacity: 0;
+      transition: all 0.3s ease;
     }
-    p {
-      margin-top: 20px;
-      font-size: 1.3rem;
-      color: #ddd;
-      letter-spacing: 0.1em;
-      animation: fadeInUp 2s ease 0.8s forwards;
-      opacity: 0;
-    }
-    .mr-invisible {
-      margin-top: 40px;
-      font-size: 1rem;
-      color: #f44336;
-      letter-spacing: 0.1em;
-      animation: fadeInUp 2s ease 1.6s forwards;
-      opacity: 0;
-    }
-    .mr-invisible strong {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 6px;
-      font-size: 1.2rem;
-    }
-    .mr-invisible a {
-      color: #f44336;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-bottom 0.3s ease;
-    }
-    .mr-invisible a:hover {
-      border-bottom: 1px solid #f44336;
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .background-glow {
-      position: fixed;
-      top: -30%;
-      left: -30%;
-      width: 160%;
-      height: 160%;
-      background: radial-gradient(circle at center, #f44336 0%, transparent 70%);
-      filter: blur(100px);
-      animation: pulse 6s ease-in-out infinite;
-      z-index: -1;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.7; }
-      50% { transform: scale(1.2); opacity: 1; }
+    .card:hover {
+      transform: scale(1.05);
+      background: #2a2a2a;
     }
   </style>
 </head>
 <body>
-  <video class="background-video" autoplay muted loop playsinline>
-    <source src="https://cdn.videvo.net/videvo_files/video/free/2018-08/small_watermarked/180722_05_Aerial_Sunset_01_preview.webm" type="video/webm" />
-    <source src="https://cdn.videvo.net/videvo_files/video/free/2018-08/small_watermarked/180722_05_Aerial_Sunset_01_preview.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
 
-  <div class="background-glow"></div>
-
-  <h1>Coming Soon</h1>
-  <p>Elite Design Company — Crafting Timeless Experiences</p>
-
-  <div class="mr-invisible">
-    <strong>Mr. Invisible</strong>
-    Owner &amp; CEO<br />
-    Instagram: <a href="https://instagram.com/mr.invisible" target="_blank" rel="noopener noreferrer">@mr.invisible</a><br />
-    Facebook: <a href="https://www.facebook.com/profile.php?id=61577620364066" target="_blank" rel="noopener noreferrer">A Nutrino - Studious</a>
+  <div class="section" id="hero">
+    <div class="logo">A Nutrino Studious</div>
+    <div class="subtitle">Elite Motion Design Studio</div>
   </div>
+
+  <div class="section" id="showcase">
+    <h2>Our World-Class Designs</h2>
+    <div class="gallery">
+      <div class="card">Design Alpha</div>
+      <div class="card">Design Omega</div>
+      <div class="card">Design Echelon</div>
+      <div class="card">Design Nova</div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    // Logo animation
+    gsap.to(".logo", {
+      scale: 1,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power4.out"
+    });
+
+    gsap.to(".subtitle", {
+      delay: 0.6,
+      opacity: 1,
+      y: -10,
+      duration: 1.2,
+      ease: "power2.out"
+    });
+
+    // Cards animate on scroll
+    gsap.utils.toArray(".card").forEach((card, i) => {
+      gsap.to(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        opacity: 1,
+        y: 0,
+        delay: i * 0.1,
+        duration: 1,
+        ease: "power2.out"
+      });
+    });
+  </script>
 </body>
 </html>
-O
